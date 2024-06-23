@@ -5,13 +5,36 @@ Github: [infobarbosa](https://github.com/infobarbosa)
 
 # Arquivos Parquet
 
-Dado um arquivo parquet armazenado em data lake, escreve código pyspark que:
-1. Leia o arquivo parquet;
-2. Crie um dataframe;
-3. Elimine duplicidades;
-4. Escreva o resultado no data lake.
+```
+df = spark \
+    .read \
+    .format("csv") \
+    .option("compression", "gzip") \
+    .option("header", True) \
+    .option("sep",";") \
+    .load("./assets/202311_NovoBolsaFamilia_SP.csv.gz")
+```
 
-Considere:
-1. Arquivo origem: ./source/input.parquet
-2. Arquivo destino: ./results/output.parquet
+```
+df.printSchema()
+```
+
+```
+>>> df.printSchema()
+root
+ |-- MES_COMPETENCIA: string (nullable = true)
+ |-- MES_REFERENCIA: string (nullable = true)
+ |-- UF: string (nullable = true)
+ |-- CODIGO_MUNICIPIO_SIAFI: string (nullable = true)
+ |-- MUNICIPIO: string (nullable = true)
+ |-- CPF: string (nullable = true)
+ |-- NIS: string (nullable = true)
+ |-- FAVORECIDO: string (nullable = true)
+ |-- VALOR: string (nullable = true)
+
+```
+
+```
+df.write.parquet("./output/beneficiarios.parquet", mode="overwrite")
+```
 

@@ -5,15 +5,10 @@ Github: [infobarbosa](https://github.com/infobarbosa)
 
 # Arquivos Parquet
 
-Dado um arquivo parquet armazenado em data lake, escreve código pyspark que:
-1. Leia o arquivo parquet;
-2. Crie um dataframe;
-3. Elimine duplicidades;
-4. Escreva o resultado no data lake.
-
+Leia o arquivo csv na pasta `assets` e salve como um arquivo parquet.
 Considere:
-1. Arquivo origem: ./source/input.parquet
-2. Arquivo destino: ./results/output.parquet
+1. Separador ponto-e-vírgula;
+2. O arquivo possui cabeçalho.
 
 
 
