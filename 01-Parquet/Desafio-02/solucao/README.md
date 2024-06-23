@@ -6,12 +6,29 @@ Github: [infobarbosa](https://github.com/infobarbosa)
 # Arquivos Parquet
 
 ```
+from pyspark.sql.types import *
+
+schema = StructType([ \
+    StructField("MES_COMPETENCIA", IntegerType(), True), \
+    StructField("MES_REFERENCIA", IntegerType(), True),\
+    StructField("UF", StringType(), True),
+    StructField("CODIGO_MUNICIPIO_SIAFI", StringType(), True),\
+    StructField("MUNICIPIO", StringType(), True),\
+    StructField("CPF", StringType(), True),\
+    StructField("NIS", LongType(), True),\
+    StructField("FAVORECIDO", StringType(), True),\
+    StructField("VALOR", FloatType(), True)])
+
+```
+
+```
 df = spark \
     .read \
     .format("csv") \
     .option("compression", "gzip") \
     .option("header", True) \
     .option("sep",";") \
+    .schema(schema) \
     .load("./assets/202311_NovoBolsaFamilia_SP.csv.gz")
 ```
 

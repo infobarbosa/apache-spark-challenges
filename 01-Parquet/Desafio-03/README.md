@@ -12,8 +12,7 @@ Dado um arquivo parquet armazenado em data lake, escreve código pyspark que:
 4. Escreva o resultado no data lake.
 
 Considere:
-1. Arquivo origem: ./source/input.parquet
-2. Arquivo destino: ./results/output.parquet
-
+1. Arquivo origem: ./assets/beneficiarios.parquet
+2. Arquivo destino: ./output/beneficiarios-dedup.parquet
 
 

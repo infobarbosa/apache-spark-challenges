@@ -5,13 +5,22 @@ Github: [infobarbosa](https://github.com/infobarbosa)
 
 # Arquivos Parquet
 
-Dado um arquivo parquet armazenado em data lake, escreve código pyspark que:
+```
+source="./assets/beneficiarios.parquet"
+output="./output/beneficiarios-dedup.parquet"
+```
 1. Leia o arquivo parquet;
+```
+df1 = spark.read.parquet(source)
+```
 2. Crie um dataframe;
+```
+```
 3. Elimine duplicidades;
+```
+```
 4. Escreva o resultado no data lake.
+```
+```
 
-Considere:
-1. Arquivo origem: ./source/input.parquet
-2. Arquivo destino: ./results/output.parquet
 
